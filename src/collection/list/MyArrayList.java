@@ -51,8 +51,8 @@ public class MyArrayList<E> implements  MyList<E> {
         elementData = Arrays.copyOf(elementData, newCapacity);
     }
 
-    @SuppressWarnings("unchecked")
     @Override
+    @SuppressWarnings("unchecked")
     public E get(int index) {
         return (E) elementData[index];
     }
