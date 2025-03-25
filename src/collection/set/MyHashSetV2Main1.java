@@ -18,6 +18,7 @@ public class MyHashSetV2Main1 {
 
         String searchValue = "SET";
         boolean result = set.contains(searchValue);
-        System.out.println("set.contains(" + searchValue + ") = " + result);
+        System.out.println("set.contains(" + searchValue + ") = " + result
+        );
     }
 }
