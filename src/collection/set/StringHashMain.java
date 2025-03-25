@@ -14,6 +14,10 @@ public class StringHashMain {
         System.out.println("hashCode(\"A\") = " + hashCode("A"));
         System.out.println("hashCode(\"B\") = " + hashCode("B"));
         System.out.println("hashCode(\"AB\") = " + hashCode("AB"));
+
+        System.out.println("hashIndex(hashCode(\"A\")) = " + hashIndex(hashCode("A")));
+        System.out.println("hashIndex(hashCode(\"B\")) = " + hashIndex(hashCode("B")));
+        System.out.println("hashIndex(hashCode(\"AB\")) = " + hashIndex(hashCode("AB")));
     }
 
     private static int hashCode(String str) {
