@@ -10,7 +10,7 @@
 - [x] **6. 컬렉션 프레임워크 - HashSet**
 - [x] **7. 컬렉션 프레임워크 - Set**
 - [x] **8. 컬렉션 프레임워크 - Map, Stack, Queue**
-- [ ] **9. 컬렉션 프레임워크 - 순회, 정렬**
+- [x] **9. 컬렉션 프레임워크 - 순회, 정렬**
 
 ---
 
@@ -106,6 +106,85 @@
   - Queue처럼: `offerFirst()`, `offerLast()`, `pollFirst()`, `pollLast()`
 
 > 🔥 실무에서는 `ArrayDeque`로 **Stack & Queue 모두 대체**하는 것이 일반적
+
+### 9. 순회 & 정렬
+
+컬렉션을 다루는 데 있어 **순회(Iteration)**와 **정렬(Sorting)**은 필수적인 핵심 개념입니다.
+
+---
+
+#### 🔁 순회 (Iteration)
+
+- **기본 for 루프**
+  ```java
+  for (int i = 0; i < list.size(); i++) {
+      System.out.println(list.get(i));
+  }
+  ```
+
+- **향상된 for-each 루프**
+  ```java
+  for (String item : list) {
+      System.out.println(item);
+  }
+  ```
+
+- **Iterator**
+  - 모든 `Collection`에서 사용 가능
+  - `remove()`를 통해 안전하게 요소 제거 가능
+  ```java
+  Iterator<String> it = list.iterator();
+  while (it.hasNext()) {
+      System.out.println(it.next());
+  }
+  ```
+
+---
+
+#### 🔀 정렬 (Sorting)
+
+- **오름차순 정렬**
+  ```java
+  Collections.sort(list);
+  ```
+
+- **내림차순 정렬 (익명 클래스 사용)**
+  ```java
+  Collections.sort(list, new Comparator<Integer>() {
+      @Override
+      public int compare(Integer a, Integer b) {
+          return b - a;
+      }
+  });
+  ```
+
+- **Comparable 인터페이스**
+  - 객체 자신이 비교 기준을 갖도록 구현
+  ```java
+  class Person implements Comparable<Person> {
+      int age;
+
+      @Override
+      public int compareTo(Person other) {
+          return this.age - other.age; // 오름차순
+      }
+  }
+  ```
+
+- **Comparator 인터페이스**
+  - 외부에서 정렬 기준을 지정
+  ```java
+  class NameComparator implements Comparator<Person> {
+      @Override
+      public int compare(Person a, Person b) {
+          return a.name.compareTo(b.name);
+      }
+  }
+
+  Collections.sort(personList, new NameComparator());
+  ```
+
+
 
 
 ---
